@@ -3,7 +3,7 @@ services:
     name: duolingo-backend
     env: python
     buildCommand: "pip install -r requirements.txt"
-    preDeployCommand: "python manage.py migrate && python manage.py seed_data && python manage.py ensure_superuser"
+    preDeployCommand: "python manage.py migrate && python manage.py ensure_superuser"
     startCommand: "gunicorn duolingo_backend.wsgi:application --bind 0.0.0.0:$PORT"
     envVars:
       - key: PYTHON_VERSION
